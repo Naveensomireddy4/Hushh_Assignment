@@ -197,3 +197,124 @@ Copy code
     "id": 1,
     "message": "Order deleted successfully"
 }
+
+
+
+
+
+
+
+
+# FastAPI CRUD Application
+
+This project is a simple CRUD (Create, Read, Update, Delete) application built with FastAPI. The application allows you to manage users and orders. You can create, read, update, and delete users and their respective orders.
+
+## Installation
+
+1. **Clone the repository:**
+    ```bash
+    git clone <repository_url>
+    cd <repository_directory>
+    ```
+
+2. **Create a virtual environment and activate it:**
+    ```bash
+    python -m venv venv
+    source venv/bin/activate  # On Windows, use `venv\Scripts\activate`
+    ```
+
+3. **Install the dependencies:**
+    ```bash
+    pip install -r requirements.txt
+    ```
+
+## Running the Application
+
+1. **Start the FastAPI application:**
+    ```bash
+    uvicorn Task1:app --reload
+    ```
+    The application will be available at `http://127.0.0.1:8000`.
+
+## API Endpoints
+
+### Users
+
+- **Create a user:**
+    ```http
+    POST /users/
+    ```
+    Request body:
+    ```json
+    {
+        "name": "John Doe",
+        "email": "john.doe@example.com"
+    }
+    ```
+
+- **Get a user by ID:**
+    ```http
+    GET /users/{id}
+    ```
+
+- **Update a user:**
+    ```http
+    PUT /users/{id}
+    ```
+    Request body:
+    ```json
+    {
+        "name": "John Smith",
+        "email": "john.smith@example.com"
+    }
+    ```
+
+- **Delete a user:**
+    ```http
+    DELETE /users/{id}
+    ```
+
+### Orders
+
+- **Create an order:**
+    ```http
+    POST /orders/
+    ```
+    Request body:
+    ```json
+    {
+        "user_id": 1,
+        "product_name": "Laptop",
+        "quantity": 2
+    }
+    ```
+
+- **Get an order by ID:**
+    ```http
+    GET /orders/{id}
+    ```
+
+- **Update an order:**
+    ```http
+    PUT /orders/{id}
+    ```
+    Request body:
+    ```json
+    {
+        "user_id": 1,
+        "product_name": "Smartphone",
+        "quantity": 1
+    }
+    ```
+
+- **Delete an order:**
+    ```http
+    DELETE /orders/{id}
+    ```
+
+## Running the Tests
+
+To run the tests, you can use `pytest`. Ensure you have `pytest` installed:
+```bash
+pip install pytest
+
