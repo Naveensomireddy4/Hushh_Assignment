@@ -26,10 +26,10 @@ CREATE TABLE orders (
   quantity INT CHECK (quantity > 0),
   order_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
-
-Requirements
-API Development: Build a FastAPI application to perform CRUD operations for both users and orders tables.
-
+```
+# Requirements
+## API Development: Build a FastAPI application to perform CRUD operations for both users and orders tables.
+```
 Endpoints for Users:
 POST /users: Create a new user.
 GET /users/{id}: Fetch user details by ID.
@@ -40,9 +40,10 @@ POST /orders: Create a new order.
 GET /orders/{id}: Fetch order details by ID.
 PUT /orders/{id}: Update order details.
 DELETE /orders/{id}: Delete an order by ID.
-Concurrency: Use Uvicorn/Gunicorn with multiple workers to handle concurrent requests efficiently.
+```
+# Concurrency: Use Uvicorn/Gunicorn with multiple workers to handle concurrent requests efficiently.
 
-Error Handling: Implement error handling for:
+## Error Handling: Implement error handling for:
 
 Invalid input (e.g., missing fields, incorrect data formats).
 Database constraints (e.g., unique email violation, foreign key errors).
@@ -53,9 +54,9 @@ Concurrency and Asynchronous Operations: Use async/await for database and I/O op
 
 Testing: Write test cases for each API endpoint to ensure reliability and proper handling of edge cases.
 
-Part 2: Data Processing Pipeline with APIs
-Objective
-Integrate OpenAI or Gemini API to process text data and build a custom data processing pipeline.
+# Part 2: Data Processing Pipeline with APIs
+## Objective
+## Integrate OpenAI or Gemini API to process text data and build a custom data processing pipeline.
 
 Requirements
 Setup the Pipeline:
@@ -76,9 +77,9 @@ Handle API failures, rate limits, and invalid responses gracefully.
 Deliverable
 Pipeline code with prompt engineering and validation scripts.
 Comparison report of outputs from the external API and the locally hosted model.
-Part 3: Metrics Extraction and Automation from SQL
+# Part 3: Metrics Extraction and Automation from SQL
 Database Schema
-sql
+```sql
 Copy code
 CREATE TABLE search_clicks (
   search_id SERIAL PRIMARY KEY,
@@ -88,6 +89,7 @@ CREATE TABLE search_clicks (
   click_through_rate FLOAT,
   search_date DATE DEFAULT CURRENT_DATE
 );
+```
 Requirements
 Metrics Analysis: Write SQL queries to analyze the search_clicks data.
 
@@ -97,7 +99,7 @@ Detect queries with high impressions but low clicks (possible optimization candi
 Pipeline Automation:
 
 Develop a Python script to execute these SQL queries and store the results in a search_insights summary table:
-sql
+```sql
 Copy code
 CREATE TABLE search_insights (
   id SERIAL PRIMARY KEY,
@@ -106,6 +108,7 @@ CREATE TABLE search_insights (
   top_queries JSONB,
   low_performance_queries JSONB
 );
+```
 Automate the script to run daily using a scheduler like cron or Celery.
 Deliverable
 SQL queries and the summary table structure.
